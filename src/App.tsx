@@ -256,7 +256,46 @@ function App() {
             <p className="text-lg text-slate-600">Click to check off items as you verify them with your prospective hospital. Don't commit until all boxes are green.</p>
           </div>
 
-          <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-2xl shadow-slate-200/50 border border-slate-100">
+          <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-2xl shadow-slate-200/50 border border-slate-100 relative">
+            
+            {/* Sticky Progress Header */}
+            <div className="sticky top-20 bg-white/90 backdrop-blur-md z-20 pb-6 mb-6 pt-2 border-b border-slate-100 rounded-t-xl">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div className="shrink-0 text-center sm:text-left">
+                  <div className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-1">Safety Score</div>
+                  <div className="flex items-end justify-center sm:justify-start gap-2">
+                    <span className="font-display font-bold text-4xl text-slate-900 leading-none">{checkedItems.size}</span>
+                    <span className="text-xl font-medium text-slate-500 leading-none mb-0.5">/ 15</span>
+                  </div>
+                </div>
+                <div className="flex-grow w-full">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                      {checkedItems.size === 15 ? 'All Checks Passed!' : 'Completion Status'}
+                    </span>
+                    <span className="text-sm font-bold text-brand-600">{Math.round((checkedItems.size / 15) * 100)}%</span>
+                  </div>
+                  <div className="h-4 w-full bg-slate-100 rounded-full overflow-hidden p-[2px] mb-2">
+                    <motion.div 
+                      className="h-full bg-gradient-to-r from-brand-400 to-brand-600 rounded-full"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(checkedItems.size / 15) * 100}%` }}
+                      transition={{ duration: 0.5, type: 'spring', bounce: 0.2 }}
+                    />
+                  </div>
+                  {checkedItems.size === 15 && (
+                     <motion.p 
+                       initial={{ opacity: 0, y: 5 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       className="text-brand-600 text-sm font-medium flex justify-end items-center gap-1"
+                     >
+                       <ShieldCheck className="w-4 h-4" /> You're ready to proceed securely.
+                     </motion.p>
+                  )}
+                </div>
+              </div>
+            </div>
+
             <div className="space-y-4">
               {CHECKLIST_ITEMS.map((item, idx) => {
                 const isChecked = checkedItems.has(idx);
@@ -288,27 +327,10 @@ function App() {
               })}
             </div>
             
-            {/* Progress indicator */}
-            <div className="mt-10 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div>
-                <div className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-2">Safety Score</div>
-                <div className="flex items-end gap-3">
-                  <span className="font-display font-bold text-4xl text-slate-900">{checkedItems.size}</span>
-                  <span className="text-xl font-medium text-slate-500 mb-1">/ 15</span>
-                </div>
-              </div>
-              <div className="flex-grow w-full sm:w-auto">
-                <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
-                  <motion.div 
-                    className="h-full bg-brand-500 rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${(checkedItems.size / 15) * 100}%` }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-              </div>
+            {/* Bottom Actions */}
+            <div className="mt-10 pt-8 border-t border-slate-100 flex justify-end">
               <button 
-                className="shrink-0 text-brand-600 hover:text-brand-700 font-semibold text-sm flex items-center gap-2 px-4 py-2 hover:bg-brand-50 rounded-xl transition-colors"
+                className="text-brand-600 hover:text-brand-700 font-semibold text-sm flex items-center gap-2 px-6 py-3 hover:bg-brand-50 rounded-xl transition-all active:scale-95"
                 onClick={() => window.print()}
               >
                 <Download className="w-4 h-4" /> Print Checklist

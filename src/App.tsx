@@ -58,21 +58,21 @@ function App() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <a href="https://le-medica.com/" className="flex items-center gap-2">
             <div className="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/20">
               <ShieldCheck className="w-6 h-6 text-white" />
             </div>
             <span className="font-display font-bold text-2xl tracking-tight text-slate-900">le-medica<span className="text-brand-600">.</span></span>
-          </div>
+          </a>
           <div className="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
             <a href="#standards" className="hover:text-brand-600 transition-colors">Standards</a>
             <a href="#verification" className="hover:text-brand-600 transition-colors">Verification</a>
             <a href="#checklist" className="hover:text-brand-600 transition-colors">Safety Checklist</a>
             <a href="#red-flags" className="hover:text-brand-600 transition-colors">Red Flags</a>
           </div>
-          <button className="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-xl hover:shadow-brand-500/20 active:scale-95 text-sm flex items-center gap-2">
+          <a href="https://le-medica.com/" className="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-xl hover:shadow-brand-500/20 active:scale-95 text-sm flex items-center gap-2">
             Get Free Report <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -107,10 +107,10 @@ function App() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all shadow-xl shadow-brand-500/30 hover:shadow-brand-500/40 active:scale-95 text-lg flex items-center justify-center gap-2">
+              <a href="https://le-medica.com/" className="bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all shadow-xl shadow-brand-500/30 hover:shadow-brand-500/40 active:scale-95 text-lg flex items-center justify-center gap-2">
                 Get My Free Safety Report
-              </button>
-              <button className="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-4 rounded-2xl font-semibold transition-all shadow-sm active:scale-95 text-lg flex items-center justify-center gap-2">
+              </a>
+              <button type="button" onClick={() => window.print()} className="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-4 rounded-2xl font-semibold transition-all shadow-sm active:scale-95 text-lg flex items-center justify-center gap-2">
                 Download PDF Checklist <Download className="w-5 h-5 ml-1" />
               </button>
             </div>
@@ -370,18 +370,18 @@ function App() {
             Protect Your Health & Investment
           </h2>
           <p className="text-xl text-brand-100 mb-12">
-            Let <strong className="text-white">le-medica.com</strong> verify hospitals and surgeons for you — entirely free of charge. We do the heavy lifting to ensure your peace of mind.
+            Let <a href="https://le-medica.com/" className="font-bold text-white hover:text-brand-200 transition-colors underline decoration-brand-400">le-medica.com</a> verify hospitals and surgeons for you — entirely free of charge. We do the heavy lifting to ensure your peace of mind.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="w-full sm:w-auto bg-slate-900 hover:bg-black text-white px-8 py-5 rounded-2xl font-bold text-lg transition-all shadow-2xl hover:shadow-black/50 active:scale-95 flex items-center justify-center gap-3">
+            <a href="https://le-medica.com/" className="w-full sm:w-auto bg-slate-900 hover:bg-black text-white px-8 py-5 rounded-2xl font-bold text-lg transition-all shadow-2xl hover:shadow-black/50 active:scale-95 flex items-center justify-center gap-3">
               <ShieldCheck className="w-6 h-6 text-brand-400" />
               Get My Free Hospital Safety Report
-            </button>
-            <button className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 px-8 py-5 rounded-2xl font-bold text-lg transition-all active:scale-95 flex items-center justify-center gap-3">
+            </a>
+            <a href="https://le-medica.com/" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 px-8 py-5 rounded-2xl font-bold text-lg transition-all active:scale-95 flex items-center justify-center gap-3">
               <PhoneCall className="w-5 h-5" />
               Request Personalized Quote
-            </button>
+            </a>
           </div>
           <p className="mt-8 text-brand-200 text-sm">
             100% Free Verification. Trusted by 2,000+ Malaysian patients.
@@ -392,10 +392,10 @@ function App() {
       {/* Footer */}
       <footer className="bg-slate-50 py-12 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
+          <a href="https://le-medica.com/" className="flex items-center gap-2">
             <ShieldCheck className="w-6 h-6 text-brand-600" />
             <span className="font-display font-bold text-xl text-slate-900">le-medica<span className="text-brand-600">.</span></span>
-          </div>
+          </a>
           <div className="text-slate-500 text-sm">
             © {new Date().getFullYear()} le-medica.com. All rights reserved. Medical Tourism Safety Partner.
           </div>
